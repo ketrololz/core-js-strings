@@ -114,8 +114,8 @@ function removeLeadingWhitespaces(str) {
  *   removeTrailingWhitespaces('cat ') => 'cat'
  *   removeTrailingWhitespaces('\t\t\tHello, World! ') => '\t\t\tHello, World!'
  */
-function removeTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeTrailingWhitespaces(str) {
+  return str.trimEnd()
 }
 
 /**
@@ -131,8 +131,8 @@ function removeTrailingWhitespaces(/* value */) {
  *   repeatString('', 3) => ''
  *   repeatString('abc', -2) => ''
  */
-function repeatString(/* str, times */) {
-  throw new Error('Not implemented');
+function repeatString(str, count) {
+  return count > 0 ? str.repeat(count) : ''
 }
 
 /**
@@ -147,8 +147,9 @@ function repeatString(/* str, times */) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  const a = str.indexOf(value)
+  return a >= 0 ? str.slice(0, a).concat(str.slice(a + value.length)) : str
 }
 
 /**
@@ -163,8 +164,9 @@ function removeFirstOccurrences(/* str, value */) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeLastOccurrences(str, value) {
+  const a = str.lastIndexOf(value)
+  return a >= 0 ? str.slice(0, a).concat(str.slice(a + value.length)) : str
 }
 
 /**
@@ -179,8 +181,19 @@ function removeLastOccurrences(/* str, value */) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(/* str */) {
-  throw new Error('Not implemented');
+function sumOfCodes(str) {
+  let sum = 0
+
+  if (str === undefined || str === null || str.length < 1) {
+    return 0
+  }
+
+  for (chars of str) {
+    console.log(chars)
+    sum += chars.charCodeAt()
+  }
+
+  return sum
 }
 
 /**
